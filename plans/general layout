@@ -1,0 +1,15 @@
+This web application will be created with the Spring Boot framework. Working with an Oracle SQL database and an Angular front end.
+
+Purpose of the application:
+
+For the user to make notes about the games they are playing
+
+How:
+
+For the data itself, there would need to be multiple entities.
+
+Genre 'maybe an Enum'
+
+Game - Game ID - Auto int - Game name - Varchar2 - Game desc - Varchar2 - Game Genre - int
+
+Game Post - Game ID FK to the Game ID in the Game Entity - Game Post
