@@ -1,4 +1,4 @@
-package entities;
+package enums;
 
 /**
  * Enum class ties a new game entity to its respective genre
