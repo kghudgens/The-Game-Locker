@@ -2,17 +2,17 @@ package entities;
 
 import java.util.Objects;
 
-public class Games {
+public class GameEntity {
 
     private int id;
     private String name;
     private String description;
     private int genre;
 
-    public Games() {
+    public GameEntity() {
     }
 
-    public Games(int id, String name, String description, int genre) {
+    public GameEntity(int id, String name, String description, int genre) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -51,22 +51,22 @@ public class Games {
         this.genre = genre;
     }
 
-    public Games id(int id) {
+    public GameEntity id(int id) {
         setId(id);
         return this;
     }
 
-    public Games name(String name) {
+    public GameEntity name(String name) {
         setName(name);
         return this;
     }
 
-    public Games description(String description) {
+    public GameEntity description(String description) {
         setDescription(description);
         return this;
     }
 
-    public Games genre(int genre) {
+    public GameEntity genre(int genre) {
         setGenre(genre);
         return this;
     }
@@ -75,12 +75,13 @@ public class Games {
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof Games)) {
+        if (!(o instanceof GameEntity)) {
             return false;
         }
-        Games games = (Games) o;
-        return id == games.id && Objects.equals(name, games.name) && Objects.equals(description, games.description)
-                && genre == games.genre;
+        GameEntity GameEntity = (GameEntity) o;
+        return id == GameEntity.id && Objects.equals(name, GameEntity.name)
+                && Objects.equals(description, GameEntity.description)
+                && genre == GameEntity.genre;
     }
 
     @Override

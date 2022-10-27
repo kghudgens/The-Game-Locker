@@ -2,14 +2,14 @@ package entities;
 
 import java.util.Objects;
 
-public class GamePost {
+public class GamePostEntity {
     private int id;
     private String post;
 
-    public GamePost() {
+    public GamePostEntity() {
     }
 
-    public GamePost(int id, String post) {
+    public GamePostEntity(int id, String post) {
         this.id = id;
         this.post = post;
     }
@@ -30,12 +30,12 @@ public class GamePost {
         this.post = post;
     }
 
-    public GamePost id(int id) {
+    public GamePostEntity id(int id) {
         setId(id);
         return this;
     }
 
-    public GamePost post(String post) {
+    public GamePostEntity post(String post) {
         setPost(post);
         return this;
     }
@@ -44,10 +44,10 @@ public class GamePost {
     public boolean equals(Object o) {
         if (o == this)
             return true;
-        if (!(o instanceof GamePost)) {
+        if (!(o instanceof GamePostEntity)) {
             return false;
         }
-        GamePost gamePost = (GamePost) o;
+        GamePostEntity gamePost = (GamePostEntity) o;
         return id == gamePost.id && Objects.equals(post, gamePost.post);
     }
 
