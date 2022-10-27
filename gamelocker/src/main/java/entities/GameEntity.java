@@ -1,6 +1,9 @@
 package entities;
 
+import java.util.List;
 import java.util.Objects;
+
+import org.apache.catalina.User;
 
 public class GameEntity {
 
@@ -8,15 +11,22 @@ public class GameEntity {
     private String name;
     private String description;
     private int genre;
+    private UserEntity user;
+    private List<GamePostEntity> gamePosts;
+    private List<CommentEntity> comments;
 
     public GameEntity() {
     }
 
-    public GameEntity(int id, String name, String description, int genre) {
+    public GameEntity(int id, String name, String description, int genre, UserEntity user,
+            List<GamePostEntity> gamePosts, List<CommentEntity> comments) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.genre = genre;
+        this.user = user;
+        this.gamePosts = gamePosts;
+        this.comments = comments;
     }
 
     public int getId() {
@@ -51,6 +61,30 @@ public class GameEntity {
         this.genre = genre;
     }
 
+    public UserEntity getUser() {
+        return this.user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+    public List<GamePostEntity> getGamePosts() {
+        return this.gamePosts;
+    }
+
+    public void setGamePosts(List<GamePostEntity> gamePosts) {
+        this.gamePosts = gamePosts;
+    }
+
+    public List<CommentEntity> getComments() {
+        return this.comments;
+    }
+
+    public void setComments(List<CommentEntity> comments) {
+        this.comments = comments;
+    }
+
     public GameEntity id(int id) {
         setId(id);
         return this;
@@ -71,6 +105,21 @@ public class GameEntity {
         return this;
     }
 
+    public GameEntity user(UserEntity user) {
+        setUser(user);
+        return this;
+    }
+
+    public GameEntity gamePosts(List<GamePostEntity> gamePosts) {
+        setGamePosts(gamePosts);
+        return this;
+    }
+
+    public GameEntity comments(List<CommentEntity> comments) {
+        setComments(comments);
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -78,15 +127,16 @@ public class GameEntity {
         if (!(o instanceof GameEntity)) {
             return false;
         }
-        GameEntity GameEntity = (GameEntity) o;
-        return id == GameEntity.id && Objects.equals(name, GameEntity.name)
-                && Objects.equals(description, GameEntity.description)
-                && genre == GameEntity.genre;
+        GameEntity gameEntity = (GameEntity) o;
+        return id == gameEntity.id && Objects.equals(name, gameEntity.name)
+                && Objects.equals(description, gameEntity.description) && genre == gameEntity.genre
+                && Objects.equals(user, gameEntity.user) && Objects.equals(gamePosts, gameEntity.gamePosts)
+                && Objects.equals(comments, gameEntity.comments);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, genre);
+        return Objects.hash(id, name, description, genre, user, gamePosts, comments);
     }
 
     @Override
@@ -96,6 +146,9 @@ public class GameEntity {
                 ", name='" + getName() + "'" +
                 ", description='" + getDescription() + "'" +
                 ", genre='" + getGenre() + "'" +
+                ", user='" + getUser() + "'" +
+                ", gamePosts='" + getGamePosts() + "'" +
+                ", comments='" + getComments() + "'" +
                 "}";
     }
 }
