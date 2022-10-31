@@ -13,20 +13,18 @@ public class GameEntity {
     private int genre;
     private UserEntity user;
     private List<GamePostEntity> gamePosts;
-    private List<CommentEntity> comments;
 
     public GameEntity() {
     }
 
     public GameEntity(int id, String name, String description, int genre, UserEntity user,
-            List<GamePostEntity> gamePosts, List<CommentEntity> comments) {
+            List<GamePostEntity> gamePosts) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.genre = genre;
         this.user = user;
         this.gamePosts = gamePosts;
-        this.comments = comments;
     }
 
     public int getId() {
@@ -77,14 +75,6 @@ public class GameEntity {
         this.gamePosts = gamePosts;
     }
 
-    public List<CommentEntity> getComments() {
-        return this.comments;
-    }
-
-    public void setComments(List<CommentEntity> comments) {
-        this.comments = comments;
-    }
-
     public GameEntity id(int id) {
         setId(id);
         return this;
@@ -115,11 +105,6 @@ public class GameEntity {
         return this;
     }
 
-    public GameEntity comments(List<CommentEntity> comments) {
-        setComments(comments);
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -130,13 +115,12 @@ public class GameEntity {
         GameEntity gameEntity = (GameEntity) o;
         return id == gameEntity.id && Objects.equals(name, gameEntity.name)
                 && Objects.equals(description, gameEntity.description) && genre == gameEntity.genre
-                && Objects.equals(user, gameEntity.user) && Objects.equals(gamePosts, gameEntity.gamePosts)
-                && Objects.equals(comments, gameEntity.comments);
+                && Objects.equals(user, gameEntity.user) && Objects.equals(gamePosts, gameEntity.gamePosts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, genre, user, gamePosts, comments);
+        return Objects.hash(id, name, description, genre, user, gamePosts);
     }
 
     @Override
@@ -148,7 +132,6 @@ public class GameEntity {
                 ", genre='" + getGenre() + "'" +
                 ", user='" + getUser() + "'" +
                 ", gamePosts='" + getGamePosts() + "'" +
-                ", comments='" + getComments() + "'" +
                 "}";
     }
 }
