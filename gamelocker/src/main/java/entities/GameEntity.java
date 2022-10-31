@@ -3,13 +3,11 @@ package entities;
 import java.util.List;
 import java.util.Objects;
 
-import org.apache.catalina.User;
-
 public class GameEntity {
 
     private int id;
-    private String name;
-    private String description;
+    private String gameTitle;
+    private String gameDescription;
     private int genre;
     private UserEntity user;
     private List<GamePostEntity> gamePosts;
@@ -17,11 +15,11 @@ public class GameEntity {
     public GameEntity() {
     }
 
-    public GameEntity(int id, String name, String description, int genre, UserEntity user,
+    public GameEntity(int id, String gameTitle, String gameDescription, int genre, UserEntity user,
             List<GamePostEntity> gamePosts) {
         this.id = id;
-        this.name = name;
-        this.description = description;
+        this.gameTitle = gameTitle;
+        this.gameDescription = gameDescription;
         this.genre = genre;
         this.user = user;
         this.gamePosts = gamePosts;
@@ -35,20 +33,20 @@ public class GameEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return this.name;
+    public String getgameTitle() {
+        return this.gameTitle;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setgameTitle(String gameTitle) {
+        this.gameTitle = gameTitle;
     }
 
-    public String getDescription() {
-        return this.description;
+    public String getgameDescription() {
+        return this.gameDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setgameDescription(String gameDescription) {
+        this.gameDescription = gameDescription;
     }
 
     public int getGenre() {
@@ -80,13 +78,13 @@ public class GameEntity {
         return this;
     }
 
-    public GameEntity name(String name) {
-        setName(name);
+    public GameEntity gameTitle(String gameTitle) {
+        setgameTitle(gameTitle);
         return this;
     }
 
-    public GameEntity description(String description) {
-        setDescription(description);
+    public GameEntity gameDescription(String gameDescription) {
+        setgameDescription(gameDescription);
         return this;
     }
 
@@ -113,22 +111,22 @@ public class GameEntity {
             return false;
         }
         GameEntity gameEntity = (GameEntity) o;
-        return id == gameEntity.id && Objects.equals(name, gameEntity.name)
-                && Objects.equals(description, gameEntity.description) && genre == gameEntity.genre
+        return id == gameEntity.id && Objects.equals(gameTitle, gameEntity.gameTitle)
+                && Objects.equals(gameDescription, gameEntity.gameDescription) && genre == gameEntity.genre
                 && Objects.equals(user, gameEntity.user) && Objects.equals(gamePosts, gameEntity.gamePosts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, genre, user, gamePosts);
+        return Objects.hash(id, gameTitle, gameDescription, genre, user, gamePosts);
     }
 
     @Override
     public String toString() {
         return "{" +
                 " id='" + getId() + "'" +
-                ", name='" + getName() + "'" +
-                ", description='" + getDescription() + "'" +
+                ", gameTitle='" + getgameTitle() + "'" +
+                ", gameDescription='" + getgameDescription() + "'" +
                 ", genre='" + getGenre() + "'" +
                 ", user='" + getUser() + "'" +
                 ", gamePosts='" + getGamePosts() + "'" +
